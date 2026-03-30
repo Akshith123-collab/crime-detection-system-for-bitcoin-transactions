@@ -1,0 +1,61 @@
+/* ===== WALLET NODES ===== */
+node.Wallet {
+  color: #2196F3;
+  border-color: #1565C0;
+  text-color-internal: #FFFFFF;
+  caption: "{wallet_id}";
+  diameter: 30px;
+  font-size: 10px;
+}
+
+/* ===== NORMAL TRANSACTIONS ===== */
+node.Transaction {
+  color: #4CAF50;
+  border-color: #2E7D32;
+  text-color-internal: #FFFFFF;
+  caption: "{tx_id}";
+  diameter: 20px;
+  font-size: 8px;
+}
+
+/* ===== SUSPICIOUS TRANSACTIONS ===== */
+node.Transaction[is_suspect = true] {
+  color: #FF5252;
+  border-color: #B71C1C;
+  text-color-internal: #FFFFFF;
+  caption: "{tx_id}";
+  diameter: 35px;
+  font-size: 10px;
+}
+
+/* ===== HIGH RISK (VERY IMPORTANT) ===== */
+node.Transaction[risk_score >= 75] {
+  color: #FF0000;
+  border-color: #8B0000;
+  diameter: 45px;
+  font-size: 12px;
+}
+
+/* ===== RELATIONSHIPS ===== */
+relationship.SENT {
+  color: #9E9E9E;
+  thickness: 1.5px;
+  caption: "SENT";
+}
+
+relationship.TO {
+  color: #BDBDBD;
+  thickness: 1.5px;
+  caption: "TO";
+}
+
+/* ===== HIGHLIGHT SUSPICIOUS FLOWS ===== */
+relationship.SENT[is_suspect = true] {
+  color: #FF5252;
+  thickness: 3px;
+}
+
+relationship.TO[is_suspect = true] {
+  color: #FF5252;
+  thickness: 3px;
+}
